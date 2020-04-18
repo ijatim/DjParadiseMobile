@@ -1,0 +1,37 @@
+body {
+    font-size: 10px;
+    background: rgb(149, 194, 215);
+}
+
+a[href='#'] {
+    text-decoration: none;
+}
+
+.thumbnail-item + .thumbnail-item {
+    margin-top: 10px;
+}
+
+.thumbnail-item {
+    display: block;
+    border: 5px solid rgb(100%, 100%, 100%);
+}
+
+.thumbnail-list {
+    list-style: none;
+}
+
+.thumbnail-image {
+    display: block;
+    width: 100%;
+}
+
+.thumbnail-title {
+    display: block;
+    margin: 0;
+    padding: 4px 10px;
+
+    background: rgb(96, 125, 139);
+    color: rgb(202, 238, 255);
+
+    font-size: 18px;
+}
