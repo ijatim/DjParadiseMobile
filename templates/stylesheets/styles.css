@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'lakeshore';
+    src: url('fonts/Lakeshore-Regular.otf') format('opentype');
+    src: url('fonts/Lakeshore-Regular.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
     font-size: 10px;
     background: rgb(149, 194, 215);
@@ -11,6 +19,14 @@ a[href='#'] {
     margin-top: 10px;
 }
 
+.logo-text {
+    background: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: lakeshore;
+    font-size: 37px;
+}
+
 .thumbnail-item {
     display: block;
     border: 5px solid rgb(100%, 100%, 100%);
@@ -18,6 +34,7 @@ a[href='#'] {
 
 .thumbnail-list {
     list-style: none;
+    padding: 0;
 }
 
 .thumbnail-image {
@@ -33,5 +50,6 @@ a[href='#'] {
     background: rgb(96, 125, 139);
     color: rgb(202, 238, 255);
 
+    font-family: lakeshore;
     font-size: 18px;
 }
