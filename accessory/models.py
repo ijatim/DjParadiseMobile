@@ -18,7 +18,10 @@ class Glass(models.Model):
 
 
 class HandsFree(models.Model):
+    # Choices
     handsfree_types = [('J Series', 'J Series'),]
+
+    # Attributes
     type = models.CharField(max_length=10, choices=handsfree_types)
     image = models.ImageField(null=True, blank=True)
     price = models.CharField('Price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
