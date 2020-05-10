@@ -1,13 +1,32 @@
 {% extends 'mobile/base_mobile.html' %}
 
 {% block content %}
+    <h1>
+    Records with 'AVAILABLE' mobile:
+    </h1>
     <ul>
-        {% for mobile in mobile_list %}
+        {% for a_record in available_r %}
             <li>
                 <a href="">
-                    {{ mobile }}
+                    {{ a_record }}
                 </a>
             </li>
+        {% empty %}
+            <li>NO record available.</li>
+        {% endfor %}
+    </ul>
+    <h1>
+    Records with 'SOLD' mobile:
+    </h1>
+    <ul>
+        {% for s_record in sold_r %}
+            <li>
+                <a href="">
+                    {{ s_record }}
+                </a>
+            </li>
+        {% empty %}
+            <li>NO record available.</li>
         {% endfor %}
     </ul>
 {% endblock %}
