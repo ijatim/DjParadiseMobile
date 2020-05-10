@@ -1,0 +1,13 @@
+{% extends 'mobile/base_mobile.html' %}
+
+{% block content %}
+    <ul>
+        {% for mobile in mobile_list %}
+            <li>
+                <a href="">
+                    {{ mobile }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

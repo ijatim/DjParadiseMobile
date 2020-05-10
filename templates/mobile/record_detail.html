@@ -1,0 +1,28 @@
+{% extends 'mobile/base_mobile.html' %}
+
+{% block content %}
+    <h1>{{ record.mobile.model.brand|title }}
+                {{ record.mobile.model.name| title }}
+                {{ record.mobile.model.color }} ======> {{ record.availability }}
+    </h1>
+    <ul>
+        <li>
+            <p> IMEI: {{ record.mobile.IMEI }}</p>
+        </li>
+        <li>
+            <p> Storage/Ram: {{ record.mobile.model.storage }}/{{ record.mobile.model.ram }}</p>
+        </li>
+        <li>
+            <p>Attachments: {{ record.mobile.model.attachments }}</p>
+        </li>
+        <li>
+            <p>Registration Status: {{ record.mobile.registration_status }}</p>
+        </li>
+        <li>
+            <p>Guarantee Status: {{ record.mobile.guarantee_status }}</p>
+        </li>
+        <li>
+            <p>Made in {{ record.mobile.manufacturer }}</p>
+        </li>
+    </ul>
+{% endblock %}

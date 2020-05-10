@@ -6,6 +6,10 @@
     font-style: normal;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-size: 10px;
     background: rgb(149, 194, 215);
@@ -28,13 +32,16 @@ a[href='#'] {
 }
 
 .thumbnail-item {
-    display: block;
+    display: inline-block;
+    width: 120px;
     border: 5px solid rgb(100%, 100%, 100%);
 }
 
 .thumbnail-list {
     list-style: none;
     padding: 0;
+    white-space: nowrap;
+    overflow-x: auto;
 }
 
 .thumbnail-image {
@@ -51,4 +58,9 @@ a[href='#'] {
     color: rgb(202, 238, 255);
 
     font-size: 18px;
+}
+
+.detail-image {
+    display: inline-block;
+    width: 75%;
 }

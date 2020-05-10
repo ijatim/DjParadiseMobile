@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Local
     'mobile.apps.MobileConfig',
+    'people.apps.PeopleConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +80,10 @@ WSGI_APPLICATION = 'DjParadiseMobile.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'paradise_mobile',
+        'USER': 'root',
+        'PASSWORD':'Nk[vhd;s1374'
     }
 }
 
