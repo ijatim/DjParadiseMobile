@@ -5,6 +5,7 @@ from django.core.validators import RegexValidator
 
 class Brand(models.Model):
     brand = models.CharField(max_length=20, unique=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.brand.upper()}'
@@ -50,9 +51,10 @@ class Model(models.Model):
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     color = models.ForeignKey('Color', on_delete=models.CASCADE)
-    ram = models.CharField(max_length=5, choices= ram_choices)
-    storage = models.CharField(max_length=5, choices= storage_choices)
+    ram = models.CharField(max_length=5, choices=ram_choices)
+    storage = models.CharField(max_length=5, choices=storage_choices)
     attachments = models.CharField(max_length=16, choices=attachment_choices)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.brand} {self.name} {self.color}: {self.storage}/{self.ram} - {self.attachments}'
@@ -66,7 +68,7 @@ class Mobile(models.Model):
     registration_choices = [('OWN', 'OWN'),
                             ('POSTPONED', 'POSTPONED'),
                             ('WHITE', 'WHITE'),
-                            ('NO', 'NO')]
+                            ('GUARANTEE CARD', 'GUARANTEE CARD')]
 
     manufacturer_choices = [('China', 'China'),
                             ('India', 'India'),
@@ -78,7 +80,7 @@ class Mobile(models.Model):
     # Attributes
     IMEI = models.CharField(max_length=15, validators=[RegexValidator(r'^\d{1,10}$')])
     model = models.ForeignKey('Model', on_delete=models.CASCADE)
-    registration_status = models.CharField(max_length=10, choices=registration_choices)
+    registration_status = models.CharField(max_length=15, choices=registration_choices)
     guarantee_status = models.CharField(max_length=3, choices=guarantee_choices)
     manufacturer = models.CharField(max_length=15, choices=manufacturer_choices)
     target_price = models.CharField('Target price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
@@ -95,6 +97,10 @@ class PurchasePaper(models.Model):
     page_number = models.IntegerField()
     date = models.DateField()
     price = models.CharField('Price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.mobile}: {self.page_number} / {self.customer}'
 
 
 class TestPaper(models.Model):
@@ -105,9 +111,12 @@ class TestPaper(models.Model):
     mobile = models.ForeignKey('Mobile', on_delete=models.CASCADE)
     page_number = models.IntegerField()
     date = models.DateField()
-    price = models.CharField('Price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
     test_result = models.CharField(max_length=10, choices=test_result_choices)
     test_description = models.TextField()
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.mobile}: {self.page_number} / {self.test_result}'
 
 
 class FactorPaper(models.Model):
@@ -122,6 +131,10 @@ class FactorPaper(models.Model):
     date = models.DateField()
     price = models.CharField('Price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
     ownership_status = models.CharField(max_length=10, choices=ownership_status_choices)
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.mobile}: {self.factor_number}-{self.page_number} / {self.customer}'
 
 
 class Record(models.Model):

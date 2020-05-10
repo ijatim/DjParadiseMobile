@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Local
     'mobile.apps.MobileConfig',
     'people.apps.PeopleConfig',
+    'accessory.apps.AccessoryConfig',
 ]
 
 MIDDLEWARE = [

@@ -14,10 +14,10 @@ class RecordsList(View):
 
 
 class RecordDetail(View):
-    template = 'mobile/record_detail.html'
+    template = 'mobile/record_details.html'
 
-    def get(self, request, IMEI, pk):
+    def get(self, request, availability, IMEI, pk):
         mobile_obj = get_object_or_404(Mobile, IMEI=IMEI)
-        record_obj = get_object_or_404(Record, pk=pk, mobile=mobile_obj)
+        record_obj = get_object_or_404(Record, pk=pk, mobile=mobile_obj, availability=availability)
 
         return render(request, self.template, context={'record': record_obj})
