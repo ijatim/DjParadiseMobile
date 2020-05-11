@@ -22,7 +22,7 @@ class HandsFree(models.Model):
     handsfree_type_choices = [('J Series', 'J Series')]
 
     # Attributes
-    type = models.CharField(max_length=10, choices=handsfree_type_choices)
+    handsfree_type = models.CharField(max_length=10, choices=handsfree_type_choices)
     image = models.ImageField(null=True, blank=True)
     price = models.CharField('Price (1000T)', max_length=5, validators=[RegexValidator(r'^\d{1,10}$')])
 
